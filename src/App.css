@@ -133,3 +133,13 @@ body {
   border-color: #f87171;
   color: #f87171;
 }
+.kofi-link {
+  color: #555;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.kofi-link:hover {
+  color: #888;
+}

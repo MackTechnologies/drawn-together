@@ -79,6 +79,7 @@ function App() {
       </div>
 
       <p className="progress">{index + 1} of {filtered.length}</p>
+      <a className="kofi-link" href="https://ko-fi.com/drawntogether" target="_blank" rel="noreferrer">☕ Buy us a coffee</a>
     </div>
   )
 }
