@@ -5,9 +5,9 @@
 }
 
 body {
-  background-color: #0f0f0f;
-  color: #f0f0f0;
-  font-family: 'Georgia', serif;
+  background-color: #FDF6EC;
+  color: #2A1508;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   min-height: 100vh;
 }
 
@@ -17,21 +17,76 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 24px;
-  gap: 32px;
+  padding: 32px 24px;
+  gap: 24px;
 }
 
+/* LOGO */
 .logo {
-  font-size: 2rem;
-  letter-spacing: 0.05em;
-  color: #f0f0f0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #7A4E20;
+  letter-spacing: 0.06em;
+  text-align: center;
 }
 
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #C4A070;
+  letter-spacing: 0.04em;
+  margin-top: -16px;
+}
+
+/* VIBE FILTER */
+.vibe-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vibe-btn {
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid #E0C8A0;
+  background: transparent;
+  color: #B09060;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vibe-btn.active {
+  color: #7A4E20;
+  border-color: #7A4E20;
+}
+
+.vibe-btn.active.vibe-silly {
+  border-color: #9B7FD4;
+  color: #9B7FD4;
+}
+
+.vibe-btn.active.vibe-deep {
+  border-color: #C4922A;
+  color: #C4922A;
+}
+
+.vibe-btn.active.vibe-spicy {
+  border-color: #C4622A;
+  color: #C4622A;
+}
+
+/* CARD */
 .card {
   width: 100%;
-  max-width: 380px;
-  height: 260px;
-  perspective: 1000px;
+  max-width: 340px;
+  height: 300px;
+  perspective: 1200px;
   cursor: pointer;
 }
 
@@ -40,7 +95,7 @@ body {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-inner.flipped {
@@ -54,92 +109,242 @@ body {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 16px;
+  background: #FFFAF3;
+  border: 1px solid #E2CBA8;
+  box-shadow:
+    0 2px 0 #DBBF90,
+    0 4px 0 #D3B380,
+    0 6px 0 #CBA870,
+    0 9px 28px rgba(140, 80, 20, 0.18);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 32px;
-  text-align: center;
-}
-
-.card-front {
-  background-color: #1e1e2e;
-  border: 1px solid #333;
-  color: #888;
-  font-size: 1.1rem;
+  justify-content: space-between;
+  padding: 16px 24px 20px;
+  overflow: hidden;
 }
 
 .card-back {
-  background-color: #1e1e2e;
-  border: 1px solid #555;
-  color: #f0f0f0;
-  font-size: 1.2rem;
-  line-height: 1.6;
   transform: rotateY(180deg);
+}
+
+/* vibe-colored card backs */
+.card-back.vibe-silly {
+  border-color: #D4C0F0;
+  box-shadow: 0 2px 0 #C4AEE0, 0 4px 0 #B49CD0, 0 6px 0 #A48CC0, 0 9px 28px rgba(100, 70, 180, 0.14);
+}
+
+.card-back.vibe-deep {
+  border-color: #E2CBA8;
+  box-shadow: 0 2px 0 #D4A853, 0 4px 0 #C49840, 0 6px 0 #B48830, 0 9px 28px rgba(180, 130, 20, 0.18);
+}
+
+.card-back.vibe-spicy {
+  border-color: #F0C8B0;
+  box-shadow: 0 2px 0 #E0A888, 0 4px 0 #D09878, 0 6px 0 #C08868, 0 9px 28px rgba(180, 90, 50, 0.16);
+}
+
+/* CARD PATTERN (front face) */
+.card-pattern {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.13;
+  z-index: 0;
+}
+
+/* CORNER MARKS */
+.corner-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.55rem;
+  letter-spacing: 0.04em;
+  position: absolute;
+  z-index: 2;
+}
+
+.corner-tl { top: 12px; left: 14px; }
+.corner-br { bottom: 12px; right: 14px; transform: rotate(180deg); }
+
+.card-front .corner-mark { color: #C4A070; }
+.card-back.vibe-silly .corner-mark { color: #9B7FD4; }
+.card-back.vibe-deep  .corner-mark { color: #C4922A; }
+.card-back.vibe-spicy .corner-mark { color: #C4622A; }
+
+/* CARD CONTENT */
+.card-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.card-rule {
+  width: 56px;
+  height: 0.5px;
+}
+
+.card-front .card-rule { background: #D4B080; }
+.card-back.vibe-silly .card-rule { background: #9B7FD4; }
+.card-back.vibe-deep  .card-rule { background: #C4922A; }
+.card-back.vibe-spicy .card-rule { background: #C4622A; }
+
+.card-tap {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.6rem;
+  color: #C4A878;
+  letter-spacing: 0.14em;
+}
+
+.card-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: #2A1508;
+  line-height: 1.75;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.card-vibe-label {
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+}
+
+.vibe-silly .card-vibe-label { color: #9B7FD4; }
+.vibe-deep  .card-vibe-label { color: #C4922A; }
+.vibe-spicy .card-vibe-label { color: #C4622A; }
+
+/* NAV */
+.nav-controls {
+  display: flex;
+  gap: 8px;
 }
 
 .next-btn {
   background: transparent;
-  border: 1px solid #555;
-  color: #f0f0f0;
-  padding: 12px 32px;
+  border: 1px solid #E0C8A0;
+  color: #A08060;
+  padding: 10px 20px;
   border-radius: 999px;
-  font-size: 1rem;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
 
 .next-btn:hover {
-  border-color: #aaa;
+  border-color: #C4A070;
+  color: #7A4E20;
 }
 
+/* PROGRESS */
 .progress {
-  color: #555;
-  font-size: 0.9rem;
-}
-.vibe-filter {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.65rem;
+  color: #C4A878;
+  letter-spacing: 0.1em;
 }
 
-.vibe-btn {
-  padding: 8px 20px;
-  border-radius: 999px;
-  border: 1px solid #444;
-  background: transparent;
-  color: #888;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.vibe-btn.active {
-  color: #f0f0f0;
-  border-color: #f0f0f0;
-}
-
-.vibe-btn.active.vibe-silly {
-  border-color: #a78bfa;
-  color: #a78bfa;
-}
-
-.vibe-btn.active.vibe-deep {
-  border-color: #fbbf24;
-  color: #fbbf24;
-}
-
-.vibe-btn.active.vibe-spicy {
-  border-color: #f87171;
-  color: #f87171;
-}
+/* KO-FI */
 .kofi-link {
-  color: #555;
-  font-size: 0.8rem;
+  font-family: -apple-system, sans-serif;
+  color: #D4C0A0;
+  font-size: 0.72rem;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .kofi-link:hover {
-  color: #888;
+  color: #A08060;
+}
+
+/* WELCOME SCREEN */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background: #FDF6EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  z-index: 100;
+}
+
+.welcome-card {
+  background: #FFFAF3;
+  border: 1px solid #E2CBA8;
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 0 #DBBF90, 0 4px 0 #D3B380, 0 9px 28px rgba(140, 80, 20, 0.18);
+  text-align: center;
+}
+
+.welcome-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #7A4E20;
+  letter-spacing: 0.06em;
+}
+
+.welcome-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #C4A070;
+  margin-top: -12px;
+}
+
+.welcome-rule {
+  width: 56px;
+  height: 0.5px;
+  background: #D4B080;
+}
+
+.welcome-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #5A3A18;
+  line-height: 1.8;
+}
+
+.welcome-cta {
+  margin-top: 8px;
+  background: #7A4E20;
+  color: #FDF6EC;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 999px;
+  font-family: 'Cormorant SC', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.welcome-cta:hover {
+  background: #5A3A10;
 }
