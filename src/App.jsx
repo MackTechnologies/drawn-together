@@ -2,23 +2,46 @@ import { useState } from 'react'
 import './App.css'
 import questions from './questions'
 
+const VIBES = ['all', 'silly', 'deep', 'spicy']
+
 function App() {
+  const [vibe, setVibe] = useState('all')
   const [index, setIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
 
+  const filtered = vibe === 'all' ? questions : questions.filter(q => q.vibe === vibe)
+
   function nextCard() {
     setFlipped(false)
-    setTimeout(() => setIndex((i) => (i + 1) % questions.length), 150)
+    setTimeout(() => setIndex((i) => (i + 1) % filtered.length), 150)
   }
 
   function prevCard() {
     setFlipped(false)
-    setTimeout(() => setIndex((i) => (i - 1 + questions.length) % questions.length), 150)
+    setTimeout(() => setIndex((i) => (i - 1 + filtered.length) % filtered.length), 150)
+  }
+
+  function selectVibe(v) {
+    setVibe(v)
+    setIndex(0)
+    setFlipped(false)
   }
 
   return (
     <div className="app">
       <h1 className="logo">Drawn Together</h1>
+
+      <div className="vibe-filter">
+        {VIBES.map(v => (
+          <button
+            key={v}
+            className={`vibe-btn ${vibe === v ? 'active' : ''} vibe-${v}`}
+            onClick={() => selectVibe(v)}
+          >
+            {v.charAt(0).toUpperCase() + v.slice(1)}
+          </button>
+        ))}
+      </div>
 
       <div className="card" onClick={() => setFlipped(!flipped)}>
         <div className={`card-inner ${flipped ? 'flipped' : ''}`}>
@@ -26,7 +49,7 @@ function App() {
             <p>Tap to reveal</p>
           </div>
           <div className="card-back">
-            <p>{questions[index].text}</p>
+            <p>{filtered[index]?.text}</p>
           </div>
         </div>
       </div>
@@ -36,7 +59,7 @@ function App() {
         <button className="next-btn" onClick={nextCard}>Next →</button>
       </div>
 
-      <p className="progress">{index + 1} of {questions.length}</p>
+      <p className="progress">{index + 1} of {filtered.length}</p>
     </div>
   )
 }

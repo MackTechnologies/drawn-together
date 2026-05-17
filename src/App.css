@@ -96,3 +96,40 @@ body {
   color: #555;
   font-size: 0.9rem;
 }
+.vibe-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vibe-btn {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #888;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.vibe-btn.active {
+  color: #f0f0f0;
+  border-color: #f0f0f0;
+}
+
+.vibe-btn.active.vibe-silly {
+  border-color: #a78bfa;
+  color: #a78bfa;
+}
+
+.vibe-btn.active.vibe-deep {
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.vibe-btn.active.vibe-spicy {
+  border-color: #f87171;
+  color: #f87171;
+}
