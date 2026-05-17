@@ -4,12 +4,23 @@ import questions from './questions'
 
 const VIBES = ['all', 'silly', 'deep', 'spicy']
 
+function shuffle(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 function App() {
   const [vibe, setVibe] = useState('all')
   const [index, setIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
+  const [deck, setDeck] = useState(null)
 
-  const filtered = vibe === 'all' ? questions : questions.filter(q => q.vibe === vibe)
+  const base = vibe === 'all' ? questions : questions.filter(q => q.vibe === vibe)
+  const filtered = deck || base
 
   function nextCard() {
     setFlipped(false)
@@ -23,6 +34,13 @@ function App() {
 
   function selectVibe(v) {
     setVibe(v)
+    setIndex(0)
+    setFlipped(false)
+    setDeck(null)
+  }
+
+  function shuffleDeck() {
+    setDeck(shuffle(base))
     setIndex(0)
     setFlipped(false)
   }
@@ -56,6 +74,7 @@ function App() {
 
       <div className="nav-controls">
         <button className="next-btn" onClick={prevCard}>← Prev</button>
+        <button className="next-btn shuffle-btn" onClick={shuffleDeck}>Shuffle</button>
         <button className="next-btn" onClick={nextCard}>Next →</button>
       </div>
 
