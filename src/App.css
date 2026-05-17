@@ -83,11 +83,12 @@ body {
 
 /* CARD */
 .card {
-  width: 100%;
-  max-width: 340px;
-  height: 300px;
+  width: 240px;
+  height: 340px;
   perspective: 1200px;
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .card-inner {
@@ -144,15 +145,19 @@ body {
   box-shadow: 0 2px 0 #E0A888, 0 4px 0 #D09878, 0 6px 0 #C08868, 0 9px 28px rgba(180, 90, 50, 0.16);
 }
 
-/* CARD PATTERN (front face) */
+/* CARD PATTERN */
 .card-pattern {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0.13;
   z-index: 0;
+  padding: 24px;
 }
 
 /* CORNER MARKS */
@@ -165,8 +170,8 @@ body {
   z-index: 2;
 }
 
-.corner-tl { top: 12px; left: 14px; }
-.corner-br { bottom: 12px; right: 14px; transform: rotate(180deg); }
+.corner-tl { top: 14px; left: 16px; }
+.corner-br { bottom: 44px; right: 16px; transform: rotate(180deg); }
 
 .card-front .corner-mark { color: #C4A070; }
 .card-back.vibe-silly .corner-mark { color: #9B7FD4; }
@@ -226,9 +231,9 @@ body {
   letter-spacing: 0.16em;
 }
 
-.vibe-silly .card-vibe-label { color: #9B7FD4; }
-.vibe-deep  .card-vibe-label { color: #C4922A; }
-.vibe-spicy .card-vibe-label { color: #C4622A; }
+.card-back.vibe-silly .card-vibe-label { color: #9B7FD4; }
+.card-back.vibe-deep  .card-vibe-label { color: #C4922A; }
+.card-back.vibe-spicy .card-vibe-label { color: #C4622A; }
 
 /* NAV */
 .nav-controls {

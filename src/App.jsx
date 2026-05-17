@@ -15,12 +15,10 @@ function shuffle(arr) {
 
 const CardPattern = () => (
   <div className="card-pattern">
-    <svg width="280" height="260" viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="14" y="14" width="172" height="272" rx="5" stroke="#8B5E30" strokeWidth="0.9"/>
-      <rect x="22" y="22" width="156" height="256" rx="4" stroke="#8B5E30" strokeWidth="0.4"/>
-      <circle cx="100" cy="150" r="52" stroke="#8B5E30" strokeWidth="0.8"/>
-      <circle cx="100" cy="150" r="38" stroke="#8B5E30" strokeWidth="0.4"/>
-      <circle cx="100" cy="150" r="22" stroke="#8B5E30" strokeWidth="0.7"/>
+    <svg width="100%" height="100%" viewBox="0 0 200 300" fill="none" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="150" r="52" stroke="#8B5E30" strokeWidth="0.9"/>
+      <circle cx="100" cy="150" r="38" stroke="#8B5E30" strokeWidth="0.5"/>
+      <circle cx="100" cy="150" r="22" stroke="#8B5E30" strokeWidth="0.8"/>
       <circle cx="100" cy="150" r="7" fill="#8B5E30"/>
       <line x1="100" y1="98" x2="100" y2="202" stroke="#8B5E30" strokeWidth="0.4"/>
       <line x1="48" y1="150" x2="152" y2="150" stroke="#8B5E30" strokeWidth="0.4"/>
