@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #FDF6EC;
+  background-color: #EDE0CC;
   color: #2A1508;
   font-family: 'Cormorant Garamond', Georgia, serif;
   min-height: 100vh;
@@ -35,7 +35,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 0.95rem;
-  color: #C4A070;
+  color: #8A6030;
   letter-spacing: 0.04em;
   margin-top: -16px;
 }
@@ -51,9 +51,9 @@ body {
 .vibe-btn {
   padding: 6px 18px;
   border-radius: 999px;
-  border: 1px solid #E0C8A0;
+  border: 1px solid #B89060;
   background: transparent;
-  color: #B09060;
+  color: #7A5530;
   font-family: 'Cormorant SC', serif;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
@@ -85,7 +85,7 @@ body {
 .card {
   width: 240px;
   height: 340px;
-  -webkit-perspective:1200px;
+  -webkit-perspective: 1200px;
   perspective: 1200px;
   cursor: pointer;
   background: transparent;
@@ -96,13 +96,13 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  -webkit-transform-style:preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-inner.flipped {
-  -webkit-transform:rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -114,13 +114,13 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 16px;
-  background: #FFFAF3;
-  border: 1px solid #E2CBA8;
+  background: #FDF4E3;
+  border: 1px solid #C4A070;
   box-shadow:
-    0 2px 0 #DBBF90,
-    0 4px 0 #D3B380,
-    0 6px 0 #CBA870,
-    0 9px 28px rgba(140, 80, 20, 0.18);
+    0 2px 0 #B8905A,
+    0 4px 0 #A88048,
+    0 6px 0 #987038,
+    0 9px 28px rgba(140, 80, 20, 0.28);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -159,7 +159,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.13;
+  opacity: 0.28;
   z-index: 0;
   padding: 24px;
 }
@@ -177,7 +177,7 @@ body {
 .corner-tl { top: 14px; left: 16px; }
 .corner-br { bottom: 44px; right: 16px; transform: rotate(180deg); }
 
-.card-front .corner-mark { color: #C4A070; }
+.card-front .corner-mark { color: #8A6030; }
 .card-back.vibe-silly .corner-mark { color: #9B7FD4; }
 .card-back.vibe-deep  .corner-mark { color: #C4922A; }
 .card-back.vibe-spicy .corner-mark { color: #C4622A; }
@@ -208,7 +208,7 @@ body {
   height: 0.5px;
 }
 
-.card-front .card-rule { background: #D4B080; }
+.card-front .card-rule { background: #8A6030; }
 .card-back.vibe-silly .card-rule { background: #9B7FD4; }
 .card-back.vibe-deep  .card-rule { background: #C4922A; }
 .card-back.vibe-spicy .card-rule { background: #C4622A; }
@@ -216,7 +216,7 @@ body {
 .card-tap {
   font-family: 'Cormorant SC', serif;
   font-size: 0.6rem;
-  color: #C4A878;
+  color: #8A6030;
   letter-spacing: 0.14em;
 }
 
@@ -247,8 +247,8 @@ body {
 
 .next-btn {
   background: transparent;
-  border: 1px solid #E0C8A0;
-  color: #A08060;
+  border: 1px solid #B89060;
+  color: #7A5530;
   padding: 10px 20px;
   border-radius: 999px;
   font-family: 'Cormorant SC', serif;
@@ -259,36 +259,36 @@ body {
 }
 
 .next-btn:hover {
-  border-color: #C4A070;
-  color: #7A4E20;
+  border-color: #8A6030;
+  color: #5A3A10;
 }
 
 /* PROGRESS */
 .progress {
   font-family: 'Cormorant SC', serif;
   font-size: 0.65rem;
-  color: #C4A878;
+  color: #8A6030;
   letter-spacing: 0.1em;
 }
 
 /* KO-FI */
 .kofi-link {
   font-family: -apple-system, sans-serif;
-  color: #D4C0A0;
+  color: #8A6030;
   font-size: 0.72rem;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .kofi-link:hover {
-  color: #A08060;
+  color: #5A3A10;
 }
 
 /* WELCOME SCREEN */
 .welcome-overlay {
   position: fixed;
   inset: 0;
-  background: #FDF6EC;
+  background: #EDE0CC;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -297,8 +297,8 @@ body {
 }
 
 .welcome-card {
-  background: #FFFAF3;
-  border: 1px solid #E2CBA8;
+  background: #FDF4E3;
+  border: 1px solid #C4A070;
   border-radius: 20px;
   padding: 48px 40px;
   max-width: 380px;
@@ -307,7 +307,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  box-shadow: 0 2px 0 #DBBF90, 0 4px 0 #D3B380, 0 9px 28px rgba(140, 80, 20, 0.18);
+  box-shadow: 0 2px 0 #B8905A, 0 4px 0 #A88048, 0 9px 28px rgba(140, 80, 20, 0.28);
   text-align: center;
 }
 
@@ -323,14 +323,14 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1rem;
-  color: #C4A070;
+  color: #8A6030;
   margin-top: -12px;
 }
 
 .welcome-rule {
   width: 56px;
   height: 0.5px;
-  background: #D4B080;
+  background: #8A6030;
 }
 
 .welcome-body {
@@ -343,7 +343,7 @@ body {
 .welcome-cta {
   margin-top: 8px;
   background: #7A4E20;
-  color: #FDF6EC;
+  color: #FDF4E3;
   border: none;
   padding: 14px 40px;
   border-radius: 999px;
