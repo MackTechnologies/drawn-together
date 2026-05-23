@@ -48,7 +48,7 @@ function WelcomeScreen({ onDismiss }) {
         <p className="welcome-tagline">Good questions for a good night.</p>
         <div className="welcome-rule"></div>
         <p className="welcome-body">
-          A deck of 250 question cards for couples — silly, spicy, and deep. No accounts, no algorithms, no ads.
+          A deck of 240 question cards for couples — silly, spicy, and deep. No accounts, no algorithms, no ads.
           <br /><br />
           Tap a card to flip it. Answer honestly. Put your phone down when it gets good.
         </p>
